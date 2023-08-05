@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>explainerdashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+<div><H1>Model Explainer</H1></div><ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+    <button class="nav-link active" id="myTab0-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab0" role="tab"
+    aria-selected="true" aria-controls="myTab0">Feature Importances</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab1-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab1" role="tab"
+    aria-selected="false" aria-controls="myTab1">Classification Stats</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab2-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab2" role="tab"
+    aria-selected="false" aria-controls="myTab2">Individual Predictions</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab3-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab3" role="tab"
+    aria-selected="false" aria-controls="myTab3">What if...</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab4-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab4" role="tab"
+    aria-selected="false" aria-controls="myTab4">Feature Dependence</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab5-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab5" role="tab"
+    aria-selected="false" aria-controls="myTab5">Feature Interactions</button>
+</li>
+
+<li class="nav-item" role="presentation">
+    <button class="nav-link" id="myTab6-tab"
+    data-bs-toggle="tab" type="button" data-bs-target="#myTab6" role="tab"
+    aria-selected="false" aria-controls="myTab6">Decision Trees</button>
+</li>
+
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+
+<div class="tab-pane active" id="myTab0"
+     role="tabpanel" aria-labelledby="myTab0-tab"> <div></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Feature Importances</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="7e6624ad-b81e-414b-b3b3-55078e87c12c" class="plotly-graph-div" style="height:760px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("7e6624ad-b81e-414b-b3b3-55078e87c12c")) {                    Plotly.newPlot(                        "7e6624ad-b81e-414b-b3b3-55078e87c12c",                        [{"hoverinfo":"text","orientation":"h","x":[1.342693258335303e-05,6.155800480778242e-05,7.245163205854843e-05,0.0002805863171603024,0.0006928395532150285,0.0011447520532922827,0.0016628692681687318,0.001677776218987222,0.0016800342206406804,0.001698514900062182,0.0019599231129473317,0.001989877500620081,0.0028749839859770416,0.0031366820914189844,0.0032669114356783354,0.0034342596835164087,0.0038978320316492474,0.005709781068744419,0.005752574104050623,0.005801174056546486,0.005804517087843159,0.007977971224866045,0.010620885158936888,0.010921431291729093,0.023042815119477904,0.02515846583839428,0.031099010029878228,0.13254578955406937],"y":["28. VisitorType_Other","27. Month_June","26. Month_Feb","25. Month_Jul","24. Month_Sep","23. Month_Dec","22. Browser","21. SpecialDay","20. Weekend","19. Month_Aug","18. OperatingSystems","17. Month_Oct","16. Informational_Duration","15. TrafficType","14. Month_Mar","13. Region","12. Informational","11. Administrative_Duration","10. VisitorType_New_Visitor","9. VisitorType_Returning_Visitor","8. Month_May","7. ProductRelated","6. Administrative","5. BounceRates","4. ProductRelated_Duration","3. ExitRates","2. Month_Nov","1. PageValues"],"type":"bar"}],                        {"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Average impact on predicted Revenue<br>(mean absolute SHAP value)"},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"automargin":true},"xaxis":{"automargin":true,"title":{"text":""}},"height":760,"margin":{"b":40,"l":203,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+<div></div>
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab1"
+     role="tabpanel" aria-labelledby="myTab1-tab"> <div></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Model performance metrics</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">metric</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accuracy</td>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <td>precision</td>
+      <td>0.889</td>
+    </tr>
+    <tr>
+      <td>recall</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>f1</td>
+      <td>0.941</td>
+    </tr>
+    <tr>
+      <td>roc_auc_score</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>pr_auc_score</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>log_loss</td>
+      <td>0.16</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Confusion Matrix</h3><h6 class="card-subtitle">How many false positives and false negatives?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="29173fb7-7b14-4758-be93-921f1871a84a" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("29173fb7-7b14-4758-be93-921f1871a84a")) {                    Plotly.newPlot(                        "29173fb7-7b14-4758-be93-921f1871a84a",                        [{"colorscale":[[0.0,"rgb(247,251,255)"],[0.125,"rgb(222,235,247)"],[0.25,"rgb(198,219,239)"],[0.375,"rgb(158,202,225)"],[0.5,"rgb(107,174,214)"],[0.625,"rgb(66,146,198)"],[0.75,"rgb(33,113,181)"],[0.875,"rgb(8,81,156)"],[1.0,"rgb(8,48,107)"]],"hoverinfo":"skip","showscale":false,"x":[" True"," False"],"y":[" True"," False"],"z":[[10.0,10.0],[0.0,80.0]],"zmax":130,"zmin":0,"type":"heatmap"}],                        {"plot_bgcolor":"#fff","title":{"text":"Confusion Matrix"},"xaxis":{"constrain":"domain","showgrid":false,"tickmode":"array","ticktext":[" True"," False"],"tickvals":[" True"," False"],"title":{"text":"predicted"}},"yaxis":{"autorange":"reversed","scaleanchor":"x","scaleratio":1,"showgrid":false,"side":"left","tickmode":"array","ticktext":[" True"," False"],"tickvals":[" True"," False"],"title":{"standoff":20,"text":"observed"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"font":{"size":20},"showarrow":false,"text":"10.0%","x":" True","y":" True"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(1)","x":" True","y":" True"},{"font":{"size":20},"showarrow":false,"text":"10.0%","x":" False","y":" True"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(1)","x":" False","y":" True"},{"font":{"size":20},"showarrow":false,"text":"0.0%","x":" True","y":" False"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(0)","x":" True","y":" False"},{"font":{"size":20},"showarrow":false,"text":"80.0%","x":" False","y":" False"},{"font":{"size":12},"showarrow":false,"text":" <br> <br> <br>(8)","x":" False","y":" False"}],"margin":{"t":40,"b":40,"l":35,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Precision Plot</h3><h6 class="card-subtitle">Does fraction positive increase with predicted probability?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="213e6dd1-4eff-4d97-8376-6d47c137bbfa" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("213e6dd1-4eff-4d97-8376-6d47c137bbfa")) {                    Plotly.newPlot(                        "213e6dd1-4eff-4d97-8376-6d47c137bbfa",                        [{"name":"counts","width":[0.09000000000000001,0.09000000000000001,0.09000000000000004,0.08999999999999998,0.08999999999999998,0.0900000000000001,0.08999999999999998,0.08999999999999998,0.08999999999999998,0.08999999999999998],"x":[0.05,0.15000000000000002,0.25,0.35000000000000003,0.45,0.55,0.6500000000000001,0.75,0.8500000000000001,0.95],"y":[0,0,1,0,0,1,0,0,1,7],"type":"bar"},{"name":"percentage False","x":[null,null,0.286,null,null,0.513,null,null,0.847,0.948],"y":[null,null,0.0,null,null,0.0,null,null,1.0,1.0],"yaxis":"y2","type":"scatter"}],                        {"plot_bgcolor":"#fff","shapes":[{"type":"line","x0":0.5,"x1":0.5,"xref":"x","y0":0,"y1":1.0,"yref":"y2"}],"title":{"text":"percentage False vs predicted probability"},"xaxis":{"title":{"text":"predicted probability"}},"yaxis":{"title":{"text":"counts"}},"yaxis2":{"overlaying":"y","rangemode":"tozero","side":"right","tickfont":{"color":"rgb(148, 103, 189)"},"title":{"font":{"color":"rgb(148, 103, 189)"},"text":"percentage"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"legend":{"orientation":"h","xanchor":"center","y":-0.2,"x":0.5},"margin":{"t":40,"b":40,"l":40,"r":40},"annotations":[{"text":"cutoff=0.5","x":0.5,"y":0.1,"yref":"y2"}]},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Classification Plot</h3><h6 class="card-subtitle">Distribution of labels above and below cutoff</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="0d6e1c24-f9cc-4ff2-88b0-425ae189bf2b" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("0d6e1c24-f9cc-4ff2-88b0-425ae189bf2b")) {                    Plotly.newPlot(                        "0d6e1c24-f9cc-4ff2-88b0-425ae189bf2b",                        [{"hoverinfo":"text","name":"False","text":["<b>0.0</b> (0.00%)","<b>8</b> (88.89%)","<b>8.0</b> (80.00%)"],"textposition":"auto","x":["below cutoff","above cutoff","total"],"y":[0.0,88.88888888888889,80.0],"type":"bar"},{"hoverinfo":"text","name":"True","text":["<b>1.0</b> (100.00%)","<b>1</b> (11.11%)","<b>2.0</b> (20.00%)"],"textposition":"auto","x":["below cutoff","above cutoff","total"],"y":[100.0,11.11111111111111,20.0],"type":"bar"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"text":"Percentage above and below cutoff"},"margin":{"t":40,"b":40,"l":40,"r":40},"barmode":"stack","legend":{"orientation":"h","xanchor":"center","y":-0.2,"x":0.5}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">ROC AUC Plot</h3><h6 class="card-subtitle">Trade-off between False positives and false negatives</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="e4dcb6d8-227c-4824-9124-565ec5b93a6d" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("e4dcb6d8-227c-4824-9124-565ec5b93a6d")) {                    Plotly.newPlot(                        "e4dcb6d8-227c-4824-9124-565ec5b93a6d",                        [{"hoverinfo":"text","mode":"lines","name":"ROC AUC CURVE","text":["threshold: 2.00 <br> FP: 0.00 <br> TP: 0.00","threshold: 1.00 <br> FP: 0.00 <br> TP: 0.12","threshold: 0.85 <br> FP: 0.00 <br> TP: 1.00","threshold: 0.29 <br> FP: 1.00 <br> TP: 1.00"],"x":[0.0,0.0,0.0,1.0],"y":[0.0,0.125,1.0,1.0],"type":"scatter"}],                        {"hovermode":"closest","plot_bgcolor":"#fff","title":{"text":"ROC AUC CURVE"},"xaxis":{"constrain":"domain","range":[0,1],"title":{"text":"False Positive Rate"}},"yaxis":{"constrain":"domain","range":[0,1],"scaleanchor":"x","scaleratio":1,"title":{"text":"True Positive Rate"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"align":"right","showarrow":false,"text":"roc-auc-score: 1.00","x":0.6,"xanchor":"left","y":0.4,"yanchor":"top"},{"align":"right","showarrow":false,"text":"cutoff: 0.50","x":0.6,"xanchor":"left","y":0.35,"yanchor":"top"},{"align":"right","showarrow":false,"text":"TPR: 1.00","x":0.6,"xanchor":"left","y":0.3,"yanchor":"top"},{"align":"right","showarrow":false,"text":"FPR: 1.00","x":0.6,"xanchor":"left","y":0.24,"yanchor":"top"}],"shapes":[{"line":{"color":"darkslategray","dash":"dot","width":4},"type":"line","x0":0,"x1":1,"xref":"x","y0":0,"y1":1,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":0,"x1":1,"xref":"x","y0":1.0,"y1":1.0,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":1.0,"x1":1.0,"xref":"x","y0":0,"y1":1,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">PR AUC Plot</h3><h6 class="card-subtitle">Trade-off between Precision and Recall</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="7b00b84a-f466-4292-bf5e-686d964b6a22" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("7b00b84a-f466-4292-bf5e-686d964b6a22")) {                    Plotly.newPlot(                        "7b00b84a-f466-4292-bf5e-686d964b6a22",                        [{"hoverinfo":"text","mode":"lines","name":"PR AUC CURVE","text":["threshold: 0.29 <br>precision: 0.80 <br>recall: 1.00","threshold: 0.51 <br>precision: 0.89 <br>recall: 1.00","threshold: 0.85 <br>precision: 1.00 <br>recall: 1.00","threshold: 0.90 <br>precision: 1.00 <br>recall: 0.88","threshold: 0.93 <br>precision: 1.00 <br>recall: 0.75","threshold: 0.93 <br>precision: 1.00 <br>recall: 0.62","threshold: 0.94 <br>precision: 1.00 <br>recall: 0.50","threshold: 0.95 <br>precision: 1.00 <br>recall: 0.38","threshold: 0.99 <br>precision: 1.00 <br>recall: 0.25","threshold: 1.00 <br>precision: 1.00 <br>recall: 0.12"],"x":[0.8,0.8888888888888888,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0],"y":[1.0,1.0,1.0,0.875,0.75,0.625,0.5,0.375,0.25,0.125,0.0],"type":"scatter"}],                        {"hovermode":"closest","plot_bgcolor":"#fff","title":{"text":"PR AUC CURVE"},"xaxis":{"constrain":"domain","range":[0,1],"title":{"text":"Precision"}},"yaxis":{"constrain":"domain","range":[0,1],"scaleanchor":"x","scaleratio":1,"title":{"text":"Recall"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"align":"right","showarrow":false,"text":"pr-auc-score: 1.00","x":0.15,"xanchor":"left","y":0.4,"yanchor":"top"},{"align":"right","showarrow":false,"text":"cutoff: 0.50","x":0.15,"xanchor":"left","y":0.35,"yanchor":"top"},{"align":"right","showarrow":false,"text":"precision: 0.89","x":0.15,"xanchor":"left","y":0.3,"yanchor":"top"},{"align":"right","showarrow":false,"text":"recall: 1.00","x":0.15,"xanchor":"left","y":0.25,"yanchor":"top"}],"shapes":[{"line":{"color":"lightslategray","width":1},"type":"line","x0":0,"x1":1,"xref":"x","y0":1.0,"y1":1.0,"yref":"y"},{"line":{"color":"lightslategray","width":1},"type":"line","x0":0.8888888888888888,"x1":0.8888888888888888,"xref":"x","y0":0,"y1":1,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Lift Curve</h3><h6 class="card-subtitle">Performance how much better than random?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="3667352f-26ed-46be-b626-fd6488224b7b" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("3667352f-26ed-46be-b626-fd6488224b7b")) {                    Plotly.newPlot(                        "3667352f-26ed-46be-b626-fd6488224b7b",                        [{"hoverinfo":"text","name":"perfect","text":["0%, 0%","80.00%, 100%","100, 100%"],"x":[0.0,80.0,100],"y":[0.0,100,100],"type":"scatter"},{"hoverinfo":"text","name":"model","text":["model selected 12.50% of all positives in first 10.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 25.00% of all positives in first 20.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 37.50% of all positives in first 30.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 50.00% of all positives in first 40.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 62.50% of all positives in first 50.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 75.00% of all positives in first 60.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 87.50% of all positives in first 70.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 100.00% of all positives in first 80.00% sampled<br>precision=100.00% positives in sample<br>lift=1.25","model selected 100.00% of all positives in first 90.00% sampled<br>precision=88.89% positives in sample<br>lift=1.11","model selected 100.00% of all positives in first 100.00% sampled<br>precision=80.00% positives in sample<br>lift=1.00"],"x":[10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0],"y":[12.5,25.0,37.5,50.0,62.5,75.0,87.5,100.0,100.0,100.0],"type":"scatter"},{"hoverinfo":"text","name":"random","text":["random selected 10.00% of all positives in first 10.00% sampled<br>precision=80.00% positives in sample","random selected 20.00% of all positives in first 20.00% sampled<br>precision=80.00% positives in sample","random selected 30.00% of all positives in first 30.00% sampled<br>precision=80.00% positives in sample","random selected 40.00% of all positives in first 40.00% sampled<br>precision=80.00% positives in sample","random selected 50.00% of all positives in first 50.00% sampled<br>precision=80.00% positives in sample","random selected 60.00% of all positives in first 60.00% sampled<br>precision=80.00% positives in sample","random selected 70.00% of all positives in first 70.00% sampled<br>precision=80.00% positives in sample","random selected 80.00% of all positives in first 80.00% sampled<br>precision=80.00% positives in sample","random selected 90.00% of all positives in first 90.00% sampled<br>precision=80.00% positives in sample","random selected 100.00% of all positives in first 100.00% sampled<br>precision=80.00% positives in sample"],"x":[10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0],"y":[10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0],"type":"scatter"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"font":{"size":18},"text":"Lift curve","x":0.5},"xaxis":{"title":{"text":"Percentage sampled"},"spikemode":"across","range":[0,100]},"yaxis":{"title":{"text":"Percentage of positive"}},"hovermode":"x","plot_bgcolor":"#fff","legend":{"xanchor":"center","y":0.9,"x":0.1},"shapes":[{"type":"line","x0":90.0,"x1":90.0,"xref":"x","y0":0,"y1":100.0,"yref":"y"}],"annotations":[{"text":"cutoff=0.50","x":90.0,"y":5,"yref":"y"},{"align":"right","showarrow":false,"text":"Model: 8 out 9 (88.89%)","x":0.5,"xanchor":"left","xref":"paper","y":0.4,"yanchor":"top","yref":"paper"},{"align":"right","showarrow":false,"text":"Random: 7 out 9 (80.00%)","x":0.5,"xanchor":"left","xref":"paper","y":0.33,"yanchor":"top","yref":"paper"},{"align":"right","showarrow":false,"text":"Lift: 1.1","x":0.5,"xanchor":"left","xref":"paper","y":0.26,"yanchor":"top","yref":"paper"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Cumulative Precision</h3><h6 class="card-subtitle">Expected distribution for highest scores</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="1bdc50ea-b6e5-4d30-999c-8742a65e849a" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("1bdc50ea-b6e5-4d30-999c-8742a65e849a")) {                    Plotly.newPlot(                        "1bdc50ea-b6e5-4d30-999c-8742a65e849a",                        [{"hoverinfo":"text","showlegend":false,"text":["percentage sampled = top 10.00%","percentage sampled = top 20.00%","percentage sampled = top 30.00%","percentage sampled = top 40.00%","percentage sampled = top 50.00%","percentage sampled = top 60.00%","percentage sampled = top 70.00%","percentage sampled = top 80.00%","percentage sampled = top 90.00%","percentage sampled = top 100.00%"],"x":[10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0],"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"type":"scatter"},{"fill":"tozeroy","hoverinfo":"text","name":"False","text":["percentage False=100.00%","percentage False=100.00%","percentage False=100.00%","percentage False=100.00%","percentage False=100.00%","percentage False=100.00%","percentage False=100.00%","percentage False=100.00%","percentage False=88.89%","percentage False=80.00%"],"x":[10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0],"y":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,88.88888888888889,80.0],"type":"scatter"},{"fill":"tonexty","hoverinfo":"text","name":"True","text":["percentage True=0.00%","percentage True=0.00%","percentage True=0.00%","percentage True=0.00%","percentage True=0.00%","percentage True=0.00%","percentage True=0.00%","percentage True=0.00%","percentage True=11.11%","percentage True=20.00%"],"x":[10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0],"y":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0],"type":"scatter"}],                        {"template":{"data":{"scatter":[{"type":"scatter"}]}},"title":{"font":{"size":18},"text":"Cumulative percentage per category<br>when sampling top X%","x":0.5},"xaxis":{"title":{"text":"Top X% model scores"},"spikemode":"across","range":[0,100],"nticks":10},"yaxis":{"title":{"text":"Cumulative precision per category"}},"hovermode":"x","plot_bgcolor":"#fff","shapes":[{"type":"line","x0":90.0,"x1":90.0,"xref":"x","y0":0,"y1":100.0,"yref":"y"}],"annotations":[{"ax":60,"text":"percentile=90.00","x":90.0,"y":20,"yref":"y"}],"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab2"
+     role="tabpanel" aria-labelledby="myTab2-tab"> <div><H1>Individual Predictions</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Select Random Index</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+Selected index: <b>1</b>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Prediction</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">label</th>
+      <th scope="col">probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>False*</td>
+      <td>99.7 %</td>
+    </tr>
+    <tr>
+      <td>True</td>
+      <td>0.3 %</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="827d5699-d968-4db5-bf18-10fb2d474ad2" class="plotly-graph-div" style="height:250px; width:250px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("827d5699-d968-4db5-bf18-10fb2d474ad2")) {                    Plotly.newPlot(                        "827d5699-d968-4db5-bf18-10fb2d474ad2",                        [{"hole":0.3,"labels":["False*","True"],"sort":false,"values":[0.997,0.003],"type":"pie"}],                        {"autosize":false,"height":250,"margin":{"b":20,"l":20,"pad":4,"r":20,"t":30},"showlegend":false,"width":250,"template":{"data":{"scatter":[{"type":"scatter"}]}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Plot</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="ea267969-69d8-417a-838d-6ef2ba6c3931" class="plotly-graph-div" style="height:600px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("ea267969-69d8-417a-838d-6ef2ba6c3931")) {                    Plotly.newPlot(                        "ea267969-69d8-417a-838d-6ef2ba6c3931",                        [{"hoverinfo":"skip","marker":{"color":"rgba(1,1,1, 0.0)"},"name":"","x":["Population<br>average","PageValues","ProductRelated_Duration","Month_Nov","Administrative","SpecialDay","VisitorType_Returning_Visitor","Month_May","TrafficType","VisitorType_New_Visitor","Informational","Administrative_Duration","Weekend","Informational_Duration","Region","Month_Aug","Browser","Month_Oct","Month_Sep","Month_Jul","ProductRelated","Month_Dec","Month_June","VisitorType_Other","Other features combined","Month_Feb","OperatingSystems","Month_Mar","BounceRates","ExitRates","Final Prediction"],"y":[0.0,84.47,93.07,95.13,96.19,97.14,97.98,98.67,99.26,99.64,100.0,100.27,100.52,100.72,100.91,101.06,101.17,101.28,101.38,101.46,101.51,101.55,101.57,101.58,101.58,101.58,101.57,101.53,101.45,100.9,0.0],"type":"bar"},{"hoverinfo":"text","marker":{"color":["rgba(230, 230, 30, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(50, 200, 50, 1.0)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(219, 64, 82, 0.7)","rgba(55, 128, 191, 0.7)"],"line":{"color":["rgba(190, 190, 30, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(40, 160, 50, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(219, 64, 82, 1.0)","rgba(55, 128, 191, 1.0)"],"width":2}},"name":"contribution","text":["Population<br>average=<BR>+84.47 ","PageValues=0.0<BR>+8.6 ","ProductRelated_Duration=0.004251759017146115<BR>+2.06 ","Month_Nov=0.0<BR>+1.06 ","Administrative=0.0<BR>+0.95 ","SpecialDay=0.8<BR>+0.84 ","VisitorType_Returning_Visitor=1.0<BR>+0.69 ","Month_May=1.0<BR>+0.59 ","TrafficType=0.15789473684210525<BR>+0.38 ","VisitorType_New_Visitor=0.0<BR>+0.36 ","Informational=0.0<BR>+0.27 ","Administrative_Duration=0.0<BR>+0.26 ","Weekend=0.0<BR>+0.2 ","Informational_Duration=0.0<BR>+0.19 ","Region=0.375<BR>+0.15 ","Month_Aug=0.0<BR>+0.12 ","Browser=0.08333333333333333<BR>+0.11 ","Month_Oct=0.0<BR>+0.1 ","Month_Sep=0.0<BR>+0.08 ","Month_Jul=0.0<BR>+0.05 ","ProductRelated=0.015602836879432626<BR>+0.04 ","Month_Dec=0.0<BR>+0.02 ","Month_June=0.0<BR>0.0 ","VisitorType_Other=0.0<BR>0.0 ","Other features combined=<BR>0.0 ","Month_Feb=0.0<BR>-0.0 ","OperatingSystems=0.14285714285714285<BR>-0.04 ","Month_Mar=0.0<BR>-0.08 ","BounceRates=0.0<BR>-0.54 ","ExitRates=0.083333335<BR>-1.24 ","Final Prediction=<BR>+99.66 "],"x":["Population<br>average","PageValues","ProductRelated_Duration","Month_Nov","Administrative","SpecialDay","VisitorType_Returning_Visitor","Month_May","TrafficType","VisitorType_New_Visitor","Informational","Administrative_Duration","Weekend","Informational_Duration","Region","Month_Aug","Browser","Month_Oct","Month_Sep","Month_Jul","ProductRelated","Month_Dec","Month_June","VisitorType_Other","Other features combined","Month_Feb","OperatingSystems","Month_Mar","BounceRates","ExitRates","Final Prediction"],"y":[84.47,8.6,2.06,1.06,0.95,0.84,0.69,0.59,0.38,0.36,0.27,0.26,0.2,0.19,0.15,0.12,0.11,0.1,0.08,0.05,0.04,0.02,0.0,0.0,0.0,-0.0,-0.04,-0.08,-0.54,-1.24,99.66],"type":"bar"}],                        {"barmode":"stack","height":600,"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Contribution to prediction probability = 99.66%","x":0.5},"template":{"data":{"scatter":[{"type":"scatter"}]}},"margin":{"b":174,"l":40,"pad":4,"r":40,"t":40},"yaxis":{"title":{"text":"Predicted %"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Partial Dependence Plot</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="e6601007-0181-4acd-ae53-8283def6aed1" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("e6601007-0181-4acd-ae53-8283def6aed1")) {                    Plotly.newPlot(                        "e6601007-0181-4acd-ae53-8283def6aed1",                        [{"line":{"color":"grey","width":4},"mode":"lines+markers","name":"average prediction <br>for different values of <br>PageValues","x":[0.0,0.04470541993805045,0.1219818718377758],"y":[91.64,43.85,39.73],"type":"scatter"},{"line":{"color":"blue","width":4},"mode":"lines+markers","name":"prediction for index 0 <br>for different values of <br>PageValues","x":[0.0,0.04470541993805045,0.1219818718377758],"y":[99.66,33.7,27.24],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[94.67002507217614,57.498741069797966,56.32095670982727],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[92.21851571816539,51.30778643936905,50.06651279380344],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[99.6633393126513,33.70215789212125,27.24494403721619],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[99.6633393126513,33.70215789212125,27.24494403721619],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[70.64183485515497,42.64548652154258,28.560667263024364],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[99.00987224157954,55.531116823342586,58.33780525095247],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[84.68116207503483,42.12264889123335,38.24477657568564],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[90.26777918910666,36.7354913023256,33.099860158288614],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[92.88579908090759,39.079570203853606,36.7843462716139],"type":"scatter"},{"hoverinfo":"skip","line":{"color":"grey"},"mode":"lines","opacity":0.1,"showlegend":false,"x":[0.0,0.04470541993805045,0.1219818718377758],"y":[92.71099128847837,46.20653983303023,41.34528573008553],"type":"scatter"}],                        {"plot_bgcolor":"#fff","title":{"text":"pdp plot for PageValues"},"xaxis":{"title":{"text":"PageValues"}},"yaxis":{"title":{"text":"Predicted Revenue (Predicted %)"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"annotations":[{"text":"baseline value = 0.0","x":0.0,"y":27.24494403721619},{"text":"baseline pred = 99.66","x":0.04470541993805045,"y":99.6633393126513}],"shapes":[{"line":{"color":"MediumPurple","dash":"dot","width":4},"type":"line","x0":0.0,"x1":0.0,"xref":"x","y0":27.24494403721619,"y1":99.6633393126513,"yref":"y"},{"line":{"color":"MediumPurple","dash":"dot","width":4},"type":"line","x0":0.0,"x1":0.1219818718377758,"xref":"x","y0":99.6633393126513,"y1":99.6633393126513,"yref":"y"}],"showlegend":false,"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Table</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Reason</th>
+      <th scope="col">Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Average of population</td>
+      <td>84.47%</td>
+    </tr>
+    <tr>
+      <td>PageValues = 0.0</td>
+      <td>+8.6%</td>
+    </tr>
+    <tr>
+      <td>ProductRelated_Duration = 0.004251759017146115</td>
+      <td>+2.06%</td>
+    </tr>
+    <tr>
+      <td>ExitRates = 0.083333335</td>
+      <td>-1.24%</td>
+    </tr>
+    <tr>
+      <td>Month_Nov = 0.0</td>
+      <td>+1.06%</td>
+    </tr>
+    <tr>
+      <td>Administrative = 0.0</td>
+      <td>+0.95%</td>
+    </tr>
+    <tr>
+      <td>SpecialDay = 0.8</td>
+      <td>+0.84%</td>
+    </tr>
+    <tr>
+      <td>VisitorType_Returning_Visitor = 1.0</td>
+      <td>+0.69%</td>
+    </tr>
+    <tr>
+      <td>Month_May = 1.0</td>
+      <td>+0.59%</td>
+    </tr>
+    <tr>
+      <td>BounceRates = 0.0</td>
+      <td>-0.54%</td>
+    </tr>
+    <tr>
+      <td>TrafficType = 0.15789473684210525</td>
+      <td>+0.38%</td>
+    </tr>
+    <tr>
+      <td>VisitorType_New_Visitor = 0.0</td>
+      <td>+0.36%</td>
+    </tr>
+    <tr>
+      <td>Informational = 0.0</td>
+      <td>+0.27%</td>
+    </tr>
+    <tr>
+      <td>Administrative_Duration = 0.0</td>
+      <td>+0.26%</td>
+    </tr>
+    <tr>
+      <td>Weekend = 0.0</td>
+      <td>+0.2%</td>
+    </tr>
+    <tr>
+      <td>Informational_Duration = 0.0</td>
+      <td>+0.19%</td>
+    </tr>
+    <tr>
+      <td>Region = 0.375</td>
+      <td>+0.15%</td>
+    </tr>
+    <tr>
+      <td>Month_Aug = 0.0</td>
+      <td>+0.12%</td>
+    </tr>
+    <tr>
+      <td>Browser = 0.08333333333333333</td>
+      <td>+0.11%</td>
+    </tr>
+    <tr>
+      <td>Month_Oct = 0.0</td>
+      <td>+0.1%</td>
+    </tr>
+    <tr>
+      <td>Month_Mar = 0.0</td>
+      <td>-0.08%</td>
+    </tr>
+    <tr>
+      <td>Month_Sep = 0.0</td>
+      <td>+0.08%</td>
+    </tr>
+    <tr>
+      <td>Month_Jul = 0.0</td>
+      <td>+0.05%</td>
+    </tr>
+    <tr>
+      <td>OperatingSystems = 0.14285714285714285</td>
+      <td>-0.04%</td>
+    </tr>
+    <tr>
+      <td>ProductRelated = 0.015602836879432626</td>
+      <td>+0.04%</td>
+    </tr>
+    <tr>
+      <td>Month_Dec = 0.0</td>
+      <td>+0.02%</td>
+    </tr>
+    <tr>
+      <td>Month_June = 0.0</td>
+      <td>+0.0%</td>
+    </tr>
+    <tr>
+      <td>Month_Feb = 0.0</td>
+      <td>-0.0%</td>
+    </tr>
+    <tr>
+      <td>VisitorType_Other = 0.0</td>
+      <td>+0.0%</td>
+    </tr>
+    <tr>
+      <td>Other features combined</td>
+      <td>+0.0%</td>
+    </tr>
+    <tr>
+      <td>Final prediction</td>
+      <td>99.66%</td>
+    </tr>
+
+  </tbody>
+</table>
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab3"
+     role="tabpanel" aria-labelledby="myTab3-tab"> <div><div><H1>What if...</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Select Random Index</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+Selected index: <b>None</b>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Prediction</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Feature Input</h3><h6 class="card-subtitle">Adjust the feature values to change the prediction</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+Selected: <b>None</b>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="PageValues">PageValues</label>
+    <input id="PageValues" type="text" value="None" name="PageValues" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="BounceRates">BounceRates</label>
+    <input id="BounceRates" type="text" value="None" name="BounceRates" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="VisitorType_Returning_Visitor">VisitorType_Returning_Visitor</label>
+    <input id="VisitorType_Returning_Visitor" type="text" value="None" name="VisitorType_Returning_Visitor" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Region">Region</label>
+    <input id="Region" type="text" value="None" name="Region" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Oct">Month_Oct</label>
+    <input id="Month_Oct" type="text" value="None" name="Month_Oct" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="SpecialDay">SpecialDay</label>
+    <input id="SpecialDay" type="text" value="None" name="SpecialDay" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Jul">Month_Jul</label>
+    <input id="Month_Jul" type="text" value="None" name="Month_Jul" disabled>
+</div>
+    
+</div>
+        
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Nov">Month_Nov</label>
+    <input id="Month_Nov" type="text" value="None" name="Month_Nov" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Administrative">Administrative</label>
+    <input id="Administrative" type="text" value="None" name="Administrative" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="VisitorType_New_Visitor">VisitorType_New_Visitor</label>
+    <input id="VisitorType_New_Visitor" type="text" value="None" name="VisitorType_New_Visitor" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Mar">Month_Mar</label>
+    <input id="Month_Mar" type="text" value="None" name="Month_Mar" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="OperatingSystems">OperatingSystems</label>
+    <input id="OperatingSystems" type="text" value="None" name="OperatingSystems" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Browser">Browser</label>
+    <input id="Browser" type="text" value="None" name="Browser" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Feb">Month_Feb</label>
+    <input id="Month_Feb" type="text" value="None" name="Month_Feb" disabled>
+</div>
+    
+</div>
+        
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="ExitRates">ExitRates</label>
+    <input id="ExitRates" type="text" value="None" name="ExitRates" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="ProductRelated">ProductRelated</label>
+    <input id="ProductRelated" type="text" value="None" name="ProductRelated" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Administrative_Duration">Administrative_Duration</label>
+    <input id="Administrative_Duration" type="text" value="None" name="Administrative_Duration" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="TrafficType">TrafficType</label>
+    <input id="TrafficType" type="text" value="None" name="TrafficType" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Aug">Month_Aug</label>
+    <input id="Month_Aug" type="text" value="None" name="Month_Aug" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Dec">Month_Dec</label>
+    <input id="Month_Dec" type="text" value="None" name="Month_Dec" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_June">Month_June</label>
+    <input id="Month_June" type="text" value="None" name="Month_June" disabled>
+</div>
+    
+</div>
+        
+<div class="col">
+
+<div style="display:flex;flex-direction:column;">
+    <label for="ProductRelated_Duration">ProductRelated_Duration</label>
+    <input id="ProductRelated_Duration" type="text" value="None" name="ProductRelated_Duration" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_May">Month_May</label>
+    <input id="Month_May" type="text" value="None" name="Month_May" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Informational">Informational</label>
+    <input id="Informational" type="text" value="None" name="Informational" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Informational_Duration">Informational_Duration</label>
+    <input id="Informational_Duration" type="text" value="None" name="Informational_Duration" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Weekend">Weekend</label>
+    <input id="Weekend" type="text" value="None" name="Weekend" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="Month_Sep">Month_Sep</label>
+    <input id="Month_Sep" type="text" value="None" name="Month_Sep" disabled>
+</div>
+    
+<div style="display:flex;flex-direction:column;">
+    <label for="VisitorType_Other">VisitorType_Other</label>
+    <input id="VisitorType_Other" type="text" value="None" name="VisitorType_Other" disabled>
+</div>
+    
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Plot</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Partial Dependence Plot</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Contributions Table</h3><h6 class="card-subtitle">How has each feature contributed to the prediction?</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>input data incorrect</div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    </div>
+</div>
+
+<div class="tab-pane " id="myTab4"
+     role="tabpanel" aria-labelledby="myTab4-tab"> <div><H1>Feature Dependence</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Shap Summary</h3><h6 class="card-subtitle">Ordering features by shap value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="5c9c4e1d-3550-4114-a024-db4a6b7d1b8d" class="plotly-graph-div" style="height:760px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("5c9c4e1d-3550-4114-a024-db4a6b7d1b8d")) {                    Plotly.newPlot(                        "5c9c4e1d-3550-4114-a024-db4a6b7d1b8d",                        [{"hoverinfo":"text","orientation":"h","x":[1.342693258335303e-05,6.155800480778242e-05,7.245163205854843e-05,0.0002805863171603024,0.0006928395532150285,0.0011447520532922827,0.0016628692681687318,0.001677776218987222,0.0016800342206406804,0.001698514900062182,0.0019599231129473317,0.001989877500620081,0.0028749839859770416,0.0031366820914189844,0.0032669114356783354,0.0034342596835164087,0.0038978320316492474,0.005709781068744419,0.005752574104050623,0.005801174056546486,0.005804517087843159,0.007977971224866045,0.010620885158936888,0.010921431291729093,0.023042815119477904,0.02515846583839428,0.031099010029878228,0.13254578955406937],"y":["28. VisitorType_Other","27. Month_June","26. Month_Feb","25. Month_Jul","24. Month_Sep","23. Month_Dec","22. Browser","21. SpecialDay","20. Weekend","19. Month_Aug","18. OperatingSystems","17. Month_Oct","16. Informational_Duration","15. TrafficType","14. Month_Mar","13. Region","12. Informational","11. Administrative_Duration","10. VisitorType_New_Visitor","9. VisitorType_Returning_Visitor","8. Month_May","7. ProductRelated","6. Administrative","5. BounceRates","4. ProductRelated_Duration","3. ExitRates","2. Month_Nov","1. PageValues"],"type":"bar"}],                        {"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Average impact on predicted Revenue<br>(mean absolute SHAP value)"},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"automargin":true},"xaxis":{"automargin":true,"title":{"text":""}},"height":760,"margin":{"b":40,"l":203,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Shap Dependence</h3><h6 class="card-subtitle">Relationship between feature value and SHAP value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="af4bbc4f-a603-443d-b88f-93d16371de0f" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("af4bbc4f-a603-443d-b88f-93d16371de0f")) {                    Plotly.newPlot(                        "af4bbc4f-a603-443d-b88f-93d16371de0f",                        [{"hoverinfo":"text","marker":{"color":[1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0],"colorbar":{"title":{"text":"Month_Nov"}},"colorscale":[[0.0,"rgb(0,0,255)"],[1.0,"rgb(255,0,0)"]],"opacity":0.6,"showscale":true,"size":7},"mode":"markers","text":["None=0<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=0.102","None=1<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=0.086","None=2<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=0.068","None=3<br>PageValues=0.04470541993805045<br>Month_Nov=0.0<br>SHAP=-0.288","None=4<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=0.056","None=5<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=0.067","None=6<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=0.098","None=7<br>PageValues=0.1219818718377758<br>Month_Nov=1.0<br>SHAP=-0.335","None=8<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=0.118","None=9<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=0.107"],"x":[0.0,0.0,0.0,0.04470541993805045,0.0,0.0,0.0,0.1219818718377758,0.0,0.0],"y":[0.10176144417471014,0.08597888107620953,0.06755539683543602,-0.28822533229767944,0.05576719988307876,0.06744511729052846,0.09777570242922837,-0.3354802547940182,0.11822805734537853,0.10724050941442614],"type":"scattergl"}],                        {"hovermode":"closest","paper_bgcolor":"#fff","plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Dependence plot for PageValues"},"xaxis":{"title":{"text":"PageValues"}},"yaxis":{"title":{"text":"SHAP value"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab5"
+     role="tabpanel" aria-labelledby="myTab5-tab"> <div><H1>Feature Interactions</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-2 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Interactions Summary</h3><h6 class="card-subtitle">Ordering features by shap interaction value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="73cd49d7-8348-4516-8092-25e22620002e" class="plotly-graph-div" style="height:760px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("73cd49d7-8348-4516-8092-25e22620002e")) {                    Plotly.newPlot(                        "73cd49d7-8348-4516-8092-25e22620002e",                        [{"hoverinfo":"text","orientation":"h","x":[2.3175667774192437e-06,8.591111216833231e-06,2.369222644580367e-05,0.00011108365647928575,0.00011399431188747443,0.00015595864955414928,0.00023612528780381318,0.00024227764189517666,0.00037986414798386523,0.00040024481381277104,0.000583081372648585,0.0005844844654329584,0.0007456346077932368,0.0007859804438237908,0.000867537661947538,0.000958451103176038,0.0010806057330358394,0.0011584298144589557,0.002041141625821208,0.0024867893508890675,0.00299509892338011,0.003042108784522906,0.00591034645270567,0.005947398946978514,0.006568826424194596,0.009975768050941431,0.010016153051417759,0.145611473758019],"y":["28. VisitorType_Other","27. Month_Feb","26. Month_June","25. Month_Jul","24. Browser","23. Month_Sep","22. Month_Oct","21. Weekend","20. Month_Dec","19. Month_Aug","18. Month_May","17. SpecialDay","16. VisitorType_New_Visitor","15. Region","14. TrafficType","13. VisitorType_Returning_Visitor","12. OperatingSystems","11. Month_Mar","10. Month_Nov","9. Informational_Duration","8. Informational","7. Administrative_Duration","6. ProductRelated","5. BounceRates","4. Administrative","3. ExitRates","2. ProductRelated_Duration","1. PageValues"],"type":"bar"}],                        {"plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Average interaction shap values for PageValues"},"template":{"data":{"scatter":[{"type":"scatter"}]}},"yaxis":{"automargin":true},"xaxis":{"automargin":true,"title":{"text":""}},"height":760,"margin":{"b":40,"l":203,"pad":4,"r":40,"t":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Interaction Dependence</h3><h6 class="card-subtitle">Relation between feature value and shap interaction value</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="8f588c56-6ea6-4a94-a0c4-d0815456aa6e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("8f588c56-6ea6-4a94-a0c4-d0815456aa6e")) {                    Plotly.newPlot(                        "8f588c56-6ea6-4a94-a0c4-d0815456aa6e",                        [{"hoverinfo":"text","marker":{"color":[0.0,0.0,0.0,0.04470541993805045,0.0,0.0,0.0,0.1219818718377758,0.0,0.0],"colorbar":{"title":{"text":"PageValues"}},"colorscale":[[0.0,"rgb(0,0,255)"],[1.0,"rgb(255,0,0)"]],"opacity":0.6,"showscale":true,"size":7},"mode":"markers","text":["None=0<br>Month_Nov=1.0<br>PageValues=0.0<br>SHAP=-0.002","None=1<br>Month_Nov=0.0<br>PageValues=0.0<br>SHAP=-0.000","None=2<br>Month_Nov=1.0<br>PageValues=0.0<br>SHAP=-0.001","None=3<br>Month_Nov=0.0<br>PageValues=0.04470541993805045<br>SHAP=0.000","None=4<br>Month_Nov=1.0<br>PageValues=0.0<br>SHAP=0.000","None=5<br>Month_Nov=0.0<br>PageValues=0.0<br>SHAP=-0.000","None=6<br>Month_Nov=1.0<br>PageValues=0.0<br>SHAP=0.002","None=7<br>Month_Nov=1.0<br>PageValues=0.1219818718377758<br>SHAP=0.012","None=8<br>Month_Nov=0.0<br>PageValues=0.0<br>SHAP=-0.003","None=9<br>Month_Nov=0.0<br>PageValues=0.0<br>SHAP=0.000"],"x":[1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0],"y":[-0.002189205886796204,-0.00044434807402118047,-0.0006127869324209568,0.00022915258055225974,5.333777506647409e-05,-7.659901347293132e-05,0.0020314028264317293,0.01184515836896433,-0.0026742353062195684,0.0002551894942664319],"type":"scattergl"}],                        {"hovermode":"closest","paper_bgcolor":"#fff","plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Interaction plot for Month_Nov and PageValues"},"xaxis":{"title":{"text":"Month_Nov"}},"yaxis":{"title":{"text":"SHAP value"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div><div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>                <div id="76e29aa4-b6c5-45b6-b892-515b30c2dc03" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("76e29aa4-b6c5-45b6-b892-515b30c2dc03")) {                    Plotly.newPlot(                        "76e29aa4-b6c5-45b6-b892-515b30c2dc03",                        [{"hoverinfo":"text","marker":{"color":[1.0,0.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,0.0],"colorbar":{"title":{"text":"Month_Nov"}},"colorscale":[[0.0,"rgb(0,0,255)"],[1.0,"rgb(255,0,0)"]],"opacity":0.6,"showscale":true,"size":7},"mode":"markers","text":["None=0<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=-0.002","None=1<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=-0.000","None=2<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=-0.001","None=3<br>PageValues=0.04470541993805045<br>Month_Nov=0.0<br>SHAP=0.000","None=4<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=0.000","None=5<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=-0.000","None=6<br>PageValues=0.0<br>Month_Nov=1.0<br>SHAP=0.002","None=7<br>PageValues=0.1219818718377758<br>Month_Nov=1.0<br>SHAP=0.012","None=8<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=-0.003","None=9<br>PageValues=0.0<br>Month_Nov=0.0<br>SHAP=0.000"],"x":[0.0,0.0,0.0,0.04470541993805045,0.0,0.0,0.0,0.1219818718377758,0.0,0.0],"y":[-0.002189205886796205,-0.0004443480740211807,-0.0006127869324209603,0.00022915258055226868,5.333777506647387e-05,-7.659901347293084e-05,0.002031402826431742,0.01184515836896432,-0.0026742353062195667,0.0002551894942664326],"type":"scattergl"}],                        {"hovermode":"closest","paper_bgcolor":"#fff","plot_bgcolor":"#fff","showlegend":false,"title":{"text":"Interaction plot for PageValues and Month_Nov"},"xaxis":{"title":{"text":"PageValues"}},"yaxis":{"title":{"text":"SHAP value"}},"template":{"data":{"scatter":[{"type":"scatter"}]}},"margin":{"t":40,"b":40,"l":40,"r":40}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+<div class="tab-pane " id="myTab6"
+     role="tabpanel" aria-labelledby="myTab6-tab"> <div><H1>Decision Trees</H1></div>
+<div>
+    <div>
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Select Random Index</h3></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+Selected index: <b>None</b>
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Decision Trees</h3><h6 class="card-subtitle">Displaying individual decision trees inside Random Forest</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+no index selected
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+        </div><div>
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="row row-cols-1 g-4" style="margin-top: 20px;">
+    
+<div class="col">
+
+<div class="card h-100" >
+  <div class="card-header"><h3 class="card-title">Decision path table</h3><h6 class="card-subtitle">Decision path through decision tree</h6></div>
+  <div class="card-body">
+    <div class="w-100">
+    
+<div class="row" style="margin-top: 20px;">
+    
+<div class="col">
+no tree selected
+</div>
+        
+</div> 
+    
+    </div>
+  </div>
+</div>
+
+</div>
+        
+</div> 
+    
+</div>
+        
+</div> 
+    
+    </div>
+</div>
+    
+</div>
+
+</div>
+<script type="text/javascript">
+var triggerTabList = [].slice.call(document.querySelectorAll('#myTab button'))
+triggerTabList.forEach(function (triggerEl) {
+  var tabTrigger = new bootstrap.Tab(triggerEl)
+
+  triggerEl.addEventListener('click', function (event) {
+    event.preventDefault()
+    tabTrigger.show()
+    window.dispatchEvent(new Event('resize'));
+  })
+})
+</script>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+window.dispatchEvent(new Event('resize'));
+</script>
+        
+</html>
+    
